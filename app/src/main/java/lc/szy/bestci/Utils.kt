@@ -5,7 +5,7 @@ import kotlin.math.*
 
 fun getHeartPoint(angle: Float, offsetX: Int, offsetY: Int): Point {
     val radian = Math.PI * angle / 180
-    val x = (19.5 * (16 * sin(radian).pow(3.0))).toFloat()
+    val x = (20 * (16 * sin(radian).pow(3.0))).toFloat()
     val y = (-20 * (13 * cos(radian) - 5 * cos(2 * radian) -
             2 * cos(3 * radian) - cos(4 * radian))).toFloat()
     return Point(offsetX + x, offsetY + y)

@@ -1,22 +1,14 @@
 package lc.szy.bestci
 
-import android.app.Activity
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
-import android.graphics.Paint
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
-import android.widget.Toast
-import androidx.annotation.UiThread
 import kotlin.math.ceil
 
 class HeartView(context: Context, attrs: AttributeSet) : View(context, attrs) {
-    var offsetX = 0
-    var offsetY = 0
-
-    val bloomCount = 10
+    val bloomCount = 2
     val bloomList = ArrayList<Bloom>(bloomCount)
 
     val bloomAngle = 360f / bloomCount
@@ -40,7 +32,7 @@ class HeartView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     override fun onDraw(canvas: Canvas) {
         for (i in 0 until Math.min(ceil((curAngle / bloomAngle).toDouble()).toInt(), bloomCount)) {
             if (i == bloomCount - 1) {
-                if (bloomList[i].petalList[4].isFinished) {
+                if (bloomList[i].petalList.last().isFinished) {
                     stopInvalidate = true
                 }
             }
@@ -51,11 +43,25 @@ class HeartView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
-        offsetX = w / 2
-        offsetY = h / 2
+        val offsetX = w / 2
+        val offsetY = h / 2
         for (i in 0 until bloomCount) {
             val point = getHeartPoint(bloomAngle * i, offsetX, offsetY)
-            bloomList.add(Bloom(point, Color.RED))
+            bloomList.add(
+                Bloom(
+                    point,
+                    randomArgb(
+                        Garden.minRedColor,
+                        Garden.maxRedColor,
+                        Garden.minGreenColor,
+                        Garden.maxGreenColor,
+                        Garden.minBlueColor,
+                        Garden.maxBlueColor,
+                        Garden.opacity
+                    ),
+                    randomInt(Garden.minPetalCount, Garden.maxPetalCount)
+                )
+            )
         }
     }
 }
