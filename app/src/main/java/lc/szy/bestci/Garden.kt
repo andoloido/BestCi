@@ -3,8 +3,8 @@ package lc.szy.bestci
 class Garden {
 
     companion object {
-        const val minPetalCount = 4
-        const val maxPetalCount = 6
+        const val minPetalCount = 5
+        const val maxPetalCount = 7
         const val minPetalStretch = 4f
         const val maxPetalStretch = 7f
         const val minGrowFactor = 0.1f

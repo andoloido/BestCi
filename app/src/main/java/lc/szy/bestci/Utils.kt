@@ -21,7 +21,7 @@ fun randomInt(min: Int, max: Int) = floor(Math.random() * (max - min + 1)).toInt
 
 fun randomFloat(min: Float, max: Float) = (Math.random() * (max - min) + min).toFloat()
 
-fun angleToRadian(angle: Int) =  (Math.PI / 180f * angle).toFloat()
+fun angleToRadian(angle: Float) =  (Math.PI / 180f * angle).toFloat()
 
 fun randomArgb(
     rMin: Int,

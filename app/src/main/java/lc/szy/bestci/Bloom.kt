@@ -7,9 +7,9 @@ class Bloom(val point: Point, color: Int, petalCount: Int = 5) {
     val petalList = mutableListOf<Petal>()
 
     init {
-        var startAngle = randomInt(0, 90)
-        val angle = 360 / petalCount
-        for (i in 0 until petalCount) {
+        var startAngle = randomFloat(0f, 90f)
+        val angle = 360f / petalCount
+        for (i in 0 until petalCount ) {
             petalList.add(Petal(color, startAngle + angle * i, angle))
         }
         startAngle -= 30

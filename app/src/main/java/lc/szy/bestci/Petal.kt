@@ -3,7 +3,7 @@ package lc.szy.bestci
 import android.graphics.*
 import java.lang.String
 
-class Petal(val color: Int, startAngle: Int, angle: Int) {
+class Petal(val color: Int, startAngle: Float, angle: Float) {
     val stretchA = randomFloat(Garden.minPetalStretch, Garden.maxPetalStretch)
     val stretchB = randomFloat(Garden.minPetalStretch, Garden.maxPetalStretch)
     val growFactor = randomFloat(Garden.minGrowFactor, Garden.maxGrowFactor)

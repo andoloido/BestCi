@@ -2,13 +2,13 @@ package lc.szy.bestci
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Color
+import android.graphics.PointF
 import android.util.AttributeSet
 import android.view.View
 import kotlin.math.ceil
 
 class HeartView(context: Context, attrs: AttributeSet) : View(context, attrs) {
-    val bloomCount = 30
+    val bloomCount = 100
     val bloomList = ArrayList<Bloom>(bloomCount)
 
     val bloomAngle = 360f / bloomCount
@@ -30,8 +30,8 @@ class HeartView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     }
 
     override fun onDraw(canvas: Canvas) {
-        for (i in 0 until Math.min(ceil((curAngle / bloomAngle).toDouble()).toInt(), bloomCount)) {
-            if (i == bloomCount - 1) {
+        for (i in 0 until Math.min(ceil((curAngle / bloomAngle).toDouble()).toInt(), bloomList.size)) {
+            if (i == bloomList.size - 1) {
                 if (bloomList[i].petalList.last().isFinished) {
                     stopInvalidate = true
                 }
@@ -47,6 +47,12 @@ class HeartView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         val offsetY = h / 2
         for (i in 0 until bloomCount) {
             val point = getHeartPoint(bloomAngle * i, offsetX, offsetY)
+            if (bloomList.isNotEmpty()) {
+                val lastPoint = bloomList.last().point
+                val distance = Math.sqrt(Math.pow(lastPoint.x - point.x.toDouble(), 2.0) + Math.pow(lastPoint.y - point.y.toDouble(), 2.0))
+                //别问我为什么要这么算，我只是一只小白兔
+                if (distance < Garden.maxBloomRadius * Garden.maxPetalStretch / 1.3) continue
+            }
             bloomList.add(
                 Bloom(
                     point,
