@@ -32,27 +32,13 @@ fun randomArgb(
     bMax: Int,
     a: Float
 ): Int {
-    val r = randomInt(rMin, rMax).toDouble().roundToInt()
-    val g = randomInt(rMin, rMax).toDouble().roundToInt()
-    val b = randomInt(rMin, rMax).toDouble().roundToInt()
+    val r = randomFloat(rMin.toFloat(), rMax.toFloat()).toDouble().roundToInt()
+    val g = randomFloat(rMin.toFloat(), rMax.toFloat()).toDouble().roundToInt()
+    val b = randomFloat(rMin.toFloat(), rMax.toFloat()).toDouble().roundToInt()
     val limit = 5
     return if (abs(r - g) <= limit && abs(g - b) < limit && abs(b - r) < limit) {
         randomArgb(rMin, rMax, gMin, gMax, bMin, bMax, a)
     } else {
         argb(r, g, b, (a * 255).toInt())
     }
-}
-
-fun setAlphaInt(color: String, alpha: String): Int {
-    try {
-        val maxAplha = "#ff000000"
-        val colorNoAlpha =
-            Math.abs(color.substring(1).toLong(16) - maxAplha.substring(1).toLong(16))
-        val alphaNumber = alpha.substring(1).toLong(16)
-        val retColor = colorNoAlpha + alphaNumber
-        return retColor.toInt()
-    } catch (e: Exception) {
-        e.printStackTrace()
-    }
-    return 0
 }

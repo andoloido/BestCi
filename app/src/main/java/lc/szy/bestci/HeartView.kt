@@ -8,7 +8,7 @@ import android.view.View
 import kotlin.math.ceil
 
 class HeartView(context: Context, attrs: AttributeSet) : View(context, attrs) {
-    val bloomCount = 2
+    val bloomCount = 30
     val bloomList = ArrayList<Bloom>(bloomCount)
 
     val bloomAngle = 360f / bloomCount

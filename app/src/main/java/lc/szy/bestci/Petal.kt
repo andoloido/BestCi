@@ -1,7 +1,6 @@
 package lc.szy.bestci
 
 import android.graphics.*
-import android.util.Log
 import java.lang.String
 
 class Petal(val color: Int, startAngle: Int, angle: Int) {
@@ -18,46 +17,16 @@ class Petal(val color: Int, startAngle: Int, angle: Int) {
 
     val paint = Paint(Paint.ANTI_ALIAS_FLAG)
     val path = Path()
-    val sweepGradientShader = LinearGradient(
-        point1.x,
-        point1.y,
-        point4.x,
-        point4.y,
-        color,
-        randomArgb(
-            Garden.minRedColor,
-            Garden.maxRedColor,
-            Garden.minGreenColor,
-            Garden.maxGreenColor,
-            Garden.minBlueColor,
-            Garden.maxBlueColor,
-            Garden.opacity
-        ),
-        Shader.TileMode.REPEAT
-    )
+    private lateinit var sweepGradientShader: LinearGradient
+
     var isFinished = false
 
     init {
         paint.strokeWidth = 10f
         paint.color = color
-        paint.shader = sweepGradientShader
     }
 
     fun draw(canvas: Canvas) {
-        val hexColor1 = String.format(
-            "#%06X",
-            0xFFFFFF and color
-        )
-        val hexColor2 = String.format(
-            "#%06X",
-            0xFFFFFF and (color.and(
-                0x00ffffff
-            ))
-        )
-
-        Log.i(
-            "PetalColor", "before" + hexColor1 + "after" + hexColor2
-        )
         if (radius < endRadius) radius += growFactor else isFinished = true
         path.moveTo(point1.x, point1.y)
         path.rCubicTo(
@@ -68,6 +37,17 @@ class Petal(val color: Int, startAngle: Int, angle: Int) {
             point2.x,
             point2.y
         )
+        //不要问我color1为什么要这么算，我只是一只小白兔
+        sweepGradientShader = LinearGradient(
+            point1.x * radius,
+            point1.y * radius,
+            point4.x * radius,
+            point4.y * radius,
+            color,
+            -(color.toLong() - 0xff000000).toInt(),
+            Shader.TileMode.REPEAT
+        )
+        paint.shader = sweepGradientShader
         canvas.drawPath(path, paint)
         path.reset()
     }

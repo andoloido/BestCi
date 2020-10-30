@@ -5,8 +5,10 @@ import kotlin.math.sin
 
 data class Point(var x: Float, var y: Float) {
     fun rotate(radian: Float): Point {
-        x = (cos(radian) * x - sin(radian) * y)
-        y = (sin(radian) * x + cos(radian) * y)
+        val tempX = x
+        val tempY = y
+        x = (cos(radian) * tempX - sin(radian) * tempY)
+        y = (sin(radian) * tempX + cos(radian) * tempY)
         return this
     }
 
