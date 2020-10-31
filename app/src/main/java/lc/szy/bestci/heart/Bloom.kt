@@ -1,8 +1,8 @@
-package lc.szy.bestci
+package lc.szy.bestci.heart
 
 import android.graphics.Canvas
 
-class Bloom(val point: Point, color: Int, petalCount: Int = 5) {
+class Bloom(val point: PointF, color: Int, petalCount: Int = 5) {
 
     val petalList = mutableListOf<Petal>()
 

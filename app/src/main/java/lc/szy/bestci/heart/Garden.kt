@@ -1,4 +1,4 @@
-package lc.szy.bestci
+package lc.szy.bestci.heart
 
 class Garden {
 

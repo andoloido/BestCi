@@ -4,10 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/onBackgroundColor"
     tools:context=".MainActivity">
 
-    <lc.szy.bestci.HeartView
+    <lc.szy.bestci.heart.HeartView
         android:id="@+id/heartView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <su.levenetc.android.textsurface.TextSurface
+        android:id="@+id/textSurface"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

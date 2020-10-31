@@ -1,7 +1,6 @@
-package lc.szy.bestci
+package lc.szy.bestci.heart
 
 import android.graphics.*
-import java.lang.String
 
 class Petal(val color: Int, startAngle: Float, angle: Float) {
     val stretchA = randomFloat(Garden.minPetalStretch, Garden.maxPetalStretch)
@@ -9,7 +8,7 @@ class Petal(val color: Int, startAngle: Float, angle: Float) {
     val growFactor = randomFloat(Garden.minGrowFactor, Garden.maxGrowFactor)
     var radius = 1f
     val endRadius = randomInt(Garden.minBloomRadius, Garden.maxBloomRadius)
-    val point1 = Point(0f, 1f).rotate(angleToRadian(startAngle))
+    val point1 = PointF(0f, 1f).rotate(angleToRadian(startAngle))
     val point2 = point1.clone().rotate(angleToRadian(angle))
     var point3 = point1.clone() * (stretchA)
     var point4 = point2.clone() * (stretchB)

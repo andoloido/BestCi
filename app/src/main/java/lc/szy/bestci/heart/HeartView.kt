@@ -1,8 +1,7 @@
-package lc.szy.bestci
+package lc.szy.bestci.heart
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.PointF
 import android.util.AttributeSet
 import android.view.View
 import kotlin.math.ceil
@@ -11,7 +10,7 @@ class HeartView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     val bloomCount = 100
     val bloomList = ArrayList<Bloom>(bloomCount)
 
-    val bloomAngle = 360f / bloomCount
+    val bloomAngle = 350f / bloomCount
     var curAngle = 0f
 
     var stopInvalidate = false

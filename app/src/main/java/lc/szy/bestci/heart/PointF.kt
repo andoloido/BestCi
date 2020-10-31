@@ -1,10 +1,10 @@
-package lc.szy.bestci
+package lc.szy.bestci.heart
 
 import kotlin.math.cos
 import kotlin.math.sin
 
-data class Point(var x: Float, var y: Float) {
-    fun rotate(radian: Float): Point {
+data class PointF(var x: Float, var y: Float) {
+    fun rotate(radian: Float): PointF {
         val tempX = x
         val tempY = y
         x = (cos(radian) * tempX - sin(radian) * tempY)
@@ -12,11 +12,11 @@ data class Point(var x: Float, var y: Float) {
         return this
     }
 
-    operator fun times(times: Float): Point {
+    operator fun times(times: Float): PointF {
         x *= times
         y *= times
         return this
     }
 
-    fun clone() = Point(x, y)
+    fun clone() = PointF(x, y)
 }
