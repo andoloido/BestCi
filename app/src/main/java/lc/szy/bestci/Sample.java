@@ -37,7 +37,7 @@ public class Sample {
         paint.setTypeface(robotoBlack);
 
         Text textDaai = TextBuilder
-                .create("中文")
+                .create("Daai")
                 .setPaint(paint)
                 .setSize(64)
                 .setAlpha(0)
@@ -45,7 +45,7 @@ public class Sample {
                 .setPosition(Align.SURFACE_CENTER).build();
 
         Text textBraAnies = TextBuilder
-                .create("中文")
+                .create("bra Anies")
                 .setPaint(paint)
                 .setSize(44)
                 .setAlpha(0)
@@ -53,7 +53,7 @@ public class Sample {
                 .setPosition(Align.BOTTOM_OF, textDaai).build();
 
         Text textFokkenGamBra = TextBuilder
-                .create("中文")
+                .create(" hy's n fokken gam bra.")
                 .setPaint(paint)
                 .setSize(44)
                 .setAlpha(0)

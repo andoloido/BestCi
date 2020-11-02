@@ -3,9 +3,9 @@
     <color name="primaryColor">#eb7897</color>
     <color name="primaryLightColor">#ffa9c8</color>
     <color name="primaryDarkColor">#b64869</color>
-  <color name="onPrimaryColor">#000000</color>
+    <color name="onPrimaryColor">#000000</color>
 
-  <color name="secondaryColor">#975cbc</color>
+    <color name="secondaryColor">#975cbc</color>
     <color name="secondaryLightColor">#c98bef</color>
     <color name="secondaryDarkColor">#672f8b</color>
     <color name="onSecondaryColor">#ffffff</color>
@@ -15,6 +15,9 @@
 
     <color name="surfaceColor">#ffffff</color>
     <color name="onSurfaceColor">#000000</color>
+
+    <color name="textWhiteColor">#ffffff</color>
+    <color name="textBlackColor">#000000</color>
 
     <color name="errorColor">#c51162</color>
     <color name="onErrorColor">#ffffff</color>

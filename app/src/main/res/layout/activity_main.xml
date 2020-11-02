@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/onBackgroundColor"
+    android:background="@color/backgroundColor"
     tools:context=".MainActivity">
 
     <lc.szy.bestci.heart.HeartView
@@ -16,14 +16,47 @@
     <su.levenetc.android.textsurface.TextSurface
         android:id="@+id/textSurface"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="300dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <TextView
+        android:id="@+id/tipTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="等下边的倒计时结束哦"
+        android:textColor="@color/textBlackColor"
+        android:textSize="@dimen/bigTextFont"
+        app:layout_constraintBottom_toTopOf="@id/countdownTv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/countdownTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/textBlackColor"
+        android:textSize="@dimen/bigTextFont"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"
+        tools:text="距离可以打开还有xx小时xx分xx秒" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/startBt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:text="开始"
+        android:backgroundTint="@color/primaryColor"
+        android:text="不行，我现在就要看"
+        android:textSize="@dimen/middleTextFont"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

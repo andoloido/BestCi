@@ -24,12 +24,11 @@ class HeartView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         }
     }
 
-    init {
-        thread.start()
-    }
-
     override fun onDraw(canvas: Canvas) {
-        for (i in 0 until Math.min(ceil((curAngle / bloomAngle).toDouble()).toInt(), bloomList.size)) {
+        for (i in 0 until Math.min(
+            ceil((curAngle / bloomAngle).toDouble()).toInt(),
+            bloomList.size
+        )) {
             if (i == bloomList.size - 1) {
                 if (bloomList[i].petalList.last().isFinished) {
                     stopInvalidate = true
@@ -37,9 +36,10 @@ class HeartView(context: Context, attrs: AttributeSet) : View(context, attrs) {
             }
             bloomList[i].draw(canvas)
         }
-        curAngle += 2f
+        curAngle += 0.2f
     }
 
+    fun start() = thread.start()
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         val offsetX = w / 2
@@ -48,7 +48,12 @@ class HeartView(context: Context, attrs: AttributeSet) : View(context, attrs) {
             val point = getHeartPoint(bloomAngle * i, offsetX, offsetY)
             if (bloomList.isNotEmpty()) {
                 val lastPoint = bloomList.last().point
-                val distance = Math.sqrt(Math.pow(lastPoint.x - point.x.toDouble(), 2.0) + Math.pow(lastPoint.y - point.y.toDouble(), 2.0))
+                val distance = Math.sqrt(
+                    Math.pow(
+                        lastPoint.x - point.x.toDouble(),
+                        2.0
+                    ) + Math.pow(lastPoint.y - point.y.toDouble(), 2.0)
+                )
                 //别问我为什么要这么算，我只是一只小白兔
                 if (distance < Garden.maxBloomRadius * Garden.maxPetalStretch / 1.3) continue
             }
