@@ -41,12 +41,13 @@ class MainActivity : AppCompatActivity() {
         if (endTime - startTime > 0) {
             countDownTimer.start()
             startBt.setOnClickListener {
-                //  Sample.play(textSurface, assets)
                 toastLong("心急吃不了热豆腐，更可怕的是可能找不到好的男朋友哦")
             }
         } else {
             timeUp()
         }
+        //TODO DELETE
+        startActivity(Intent(this@MainActivity, TextActivity::class.java))
     }
 
     val countDownTimer = object : CountDownTimer(endTime - startTime, 1000L) {
@@ -58,7 +59,6 @@ class MainActivity : AppCompatActivity() {
             val minuteText = if (minute < 10) "0${minute}" else "$minute"
             val secondText = if (second < 10) "0${second}" else "$second"
             countdownTv.text = "${hourText}：${minuteText}：${secondText}"
-
         }
 
         override fun onFinish() {

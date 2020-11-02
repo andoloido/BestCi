@@ -39,7 +39,7 @@ public class Sample {
         Text textDaai = TextBuilder
                 .create("Daai")
                 .setPaint(paint)
-                .setSize(64)
+                .setSize(32)
                 .setAlpha(0)
                 .setColor(Color.WHITE)
                 .setPosition(Align.SURFACE_CENTER).build();
@@ -47,15 +47,15 @@ public class Sample {
         Text textBraAnies = TextBuilder
                 .create("bra Anies")
                 .setPaint(paint)
-                .setSize(44)
+                .setSize(22)
                 .setAlpha(0)
                 .setColor(Color.RED)
                 .setPosition(Align.BOTTOM_OF, textDaai).build();
 
         Text textFokkenGamBra = TextBuilder
-                .create(" hy's n fokken gam bra.")
+                .create(" hy'")
                 .setPaint(paint)
-                .setSize(44)
+                .setSize(22)
                 .setAlpha(0)
                 .setColor(Color.RED)
                 .setPosition(Align.RIGHT_OF, textBraAnies).build();
@@ -63,23 +63,23 @@ public class Sample {
         Text textHaai = TextBuilder
                 .create("Haai!!")
                 .setPaint(paint)
-                .setSize(74)
+                .setSize(37)
                 .setAlpha(0)
                 .setColor(Color.RED)
                 .setPosition(Align.BOTTOM_OF, textFokkenGamBra).build();
 
         Text textDaaiAnies = TextBuilder
-                .create("Daai Anies")
+                .create("Daa")
                 .setPaint(paint)
-                .setSize(44)
+                .setSize(22)
                 .setAlpha(0)
                 .setColor(Color.WHITE)
                 .setPosition(Align.BOTTOM_OF | Align.CENTER_OF, textHaai).build();
 
         Text texThyLamInnie = TextBuilder
-                .create(" hy lam innie mang ja.")
+                .create(" hy")
                 .setPaint(paint)
-                .setSize(44)
+                .setSize(22)
                 .setAlpha(0)
                 .setColor(Color.WHITE)
                 .setPosition(Align.RIGHT_OF, textDaaiAnies).build();
@@ -87,7 +87,7 @@ public class Sample {
         Text textThrowDamn = TextBuilder
                 .create("Throw damn")
                 .setPaint(paint)
-                .setSize(44)
+                .setSize(22)
                 .setAlpha(0)
                 .setColor(Color.RED)
                 .setPosition(Align.BOTTOM_OF | Align.CENTER_OF, texThyLamInnie).build();
@@ -95,7 +95,7 @@ public class Sample {
         Text textDevilishGang = TextBuilder
                 .create("devilish gang")
                 .setPaint(paint)
-                .setSize(44)
+                .setSize(22)
                 .setAlpha(0)
                 .setColor(Color.RED)
                 .setPosition(Align.BOTTOM_OF | Align.CENTER_OF, textThrowDamn).build();
@@ -103,7 +103,7 @@ public class Sample {
         Text textSignsInTheAir = TextBuilder
                 .create("signs in the air.")
                 .setPaint(paint)
-                .setSize(44)
+                .setSize(22)
                 .setAlpha(0)
                 .setColor(Color.RED)
                 .setPosition(Align.BOTTOM_OF | Align.CENTER_OF, textDevilishGang).build();
@@ -130,11 +130,9 @@ public class Sample {
                         ),
                         Delay.duration(200),
                         new Parallel(
-                                ShapeReveal.create(textThrowDamn, 1500, SideCut.hide(Side.LEFT), true),
-                                new Sequential(Delay.duration(250), ShapeReveal.create(textDevilishGang, 1500, SideCut.hide(Side.LEFT), true)),
-                                new Sequential(Delay.duration(500), ShapeReveal.create(textSignsInTheAir, 1500, SideCut.hide(Side.LEFT), true)),
-                                Alpha.hide(texThyLamInnie, 1500),
-                                Alpha.hide(textDaaiAnies, 1500)
+                                ShapeReveal.create(textThrowDamn, 1500, SideCut.hide(Side.LEFT), false),
+                                new Sequential(Delay.duration(250), ShapeReveal.create(textDevilishGang, 1500, SideCut.hide(Side.LEFT), false)),
+                                new Sequential(Delay.duration(500), ShapeReveal.create(textSignsInTheAir, 1500, SideCut.hide(Side.LEFT), false))
                         )
                 )
         );

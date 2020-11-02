@@ -24,16 +24,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <su.levenetc.android.textsurface.TextSurface
-        android:id="@+id/textSurface"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/tipTv"
         android:layout_width="wrap_content"
@@ -65,7 +55,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="56dp"
-        android:backgroundTint="@color/primaryColor"
         android:text="不行，我现在就要看"
         android:textSize="@dimen/middleTextFont"
         app:layout_constraintBottom_toBottomOf="parent"
