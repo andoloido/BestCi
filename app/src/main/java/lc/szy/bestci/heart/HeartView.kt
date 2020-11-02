@@ -4,14 +4,17 @@ import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
 import android.view.View
+import lc.szy.bestci.ANIMATION_DURATION
 import kotlin.math.ceil
 
 class HeartView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     val bloomCount = 100
     val bloomList = ArrayList<Bloom>(bloomCount)
 
-    val bloomAngle = 350f / bloomCount
+    val bloomAngle = 360f / bloomCount
     var curAngle = 0f
+    var trueBloomAngle = 0f
+    val angleGrowFactor = 360f / (60 * (ANIMATION_DURATION / 1000))
 
     var stopInvalidate = false
     var thread = object : Thread() {
@@ -26,7 +29,7 @@ class HeartView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
     override fun onDraw(canvas: Canvas) {
         for (i in 0 until Math.min(
-            ceil((curAngle / bloomAngle).toDouble()).toInt(),
+            ceil((curAngle / trueBloomAngle).toDouble()).toInt(),
             bloomList.size
         )) {
             if (i == bloomList.size - 1) {
@@ -36,7 +39,7 @@ class HeartView(context: Context, attrs: AttributeSet) : View(context, attrs) {
             }
             bloomList[i].draw(canvas)
         }
-        curAngle += 0.2f
+        curAngle += angleGrowFactor
     }
 
     fun start() = thread.start()
@@ -73,5 +76,6 @@ class HeartView(context: Context, attrs: AttributeSet) : View(context, attrs) {
                 )
             )
         }
+        trueBloomAngle = 360f / bloomList.size
     }
 }

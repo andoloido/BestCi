@@ -1,6 +1,8 @@
 package lc.szy.bestci
 
 import android.content.Context
+import android.content.res.Resources
+import android.util.TypedValue
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 
@@ -24,3 +26,10 @@ fun Fragment.toast(message: String) {
     toast.setText(message)
     toast.show()
 }
+
+val Float.dp
+    get() = TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP,
+        this,
+        Resources.getSystem().displayMetrics
+    )

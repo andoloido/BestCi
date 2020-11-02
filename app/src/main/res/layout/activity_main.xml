@@ -7,11 +7,22 @@
     android:background="@color/backgroundColor"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/titleTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:alpha="0"
+        android:text="这个app\n做给全世界最棒的女孩子\n刘慈"
+        android:textColor="@color/textBlackColor"
+        android:textSize="@dimen/bigTextFont"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="parent" />
+
     <lc.szy.bestci.heart.HeartView
         android:id="@+id/heartView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone" />
+        android:layout_height="match_parent"/>
 
     <su.levenetc.android.textsurface.TextSurface
         android:id="@+id/textSurface"
@@ -42,18 +53,18 @@
         android:gravity="center"
         android:textColor="@color/textBlackColor"
         android:textSize="@dimen/bigTextFont"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textStyle="bold"
-        tools:text="距离可以打开还有xx小时xx分xx秒" />
+        tools:text="xx：xx：xx" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/startBt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="56dp"
         android:backgroundTint="@color/primaryColor"
         android:text="不行，我现在就要看"
         android:textSize="@dimen/middleTextFont"
