@@ -1,4 +1,4 @@
-package lc.szy.bestci
+package lc.szy.bestci.utils
 
 import android.content.Context
 import android.content.res.Resources

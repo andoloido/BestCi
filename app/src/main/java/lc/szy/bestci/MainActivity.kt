@@ -5,9 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
-import android.view.animation.DecelerateInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import lc.szy.bestci.utils.dp
+import lc.szy.bestci.utils.toastLong
 import su.levenetc.android.textsurface.utils.AnimatorEndListener
 import java.util.*
 
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             timeUp()
         }
         //TODO DELETE
-        startActivity(Intent(this@MainActivity, TextActivity::class.java))
+        startActivity(Intent(this@MainActivity, SecretActivity::class.java))
     }
 
     val countDownTimer = object : CountDownTimer(endTime - startTime, 1000L) {
