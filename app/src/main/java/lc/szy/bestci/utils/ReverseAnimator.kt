@@ -14,13 +14,13 @@ class ReverseAnimator(view1: View, view2: View) {
     }
 
     val animator1: ObjectAnimator =
-        ObjectAnimator.ofFloat(view1, View.ROTATION_Y, 0f, 90f).setDuration(500L)
+        ObjectAnimator.ofFloat(view1, View.ROTATION_Y, 0f, 90f).setDuration(5000L)
     val animator1Reverse: ObjectAnimator =
-        ObjectAnimator.ofFloat(view1, View.ROTATION_Y, 90f, 0f).setDuration(500L)
+        ObjectAnimator.ofFloat(view1, View.ROTATION_Y, 90f, 0f).setDuration(5000L)
     val animator2: ObjectAnimator =
-        ObjectAnimator.ofFloat(view2, View.ROTATION_Y, 90f, 180f).setDuration(500L)
+        ObjectAnimator.ofFloat(view2, View.ROTATION_Y, 90f, 180f).setDuration(5000L)
     val animator2Reverse: ObjectAnimator =
-        ObjectAnimator.ofFloat(view2, View.ROTATION_Y, 180f, 90f).setDuration(500L)
+        ObjectAnimator.ofFloat(view2, View.ROTATION_Y, 180f, 90f).setDuration(5000L)
 
     init {
         animator1.interpolator = LinearInterpolator()
