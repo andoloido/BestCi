@@ -22,6 +22,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
@@ -34,6 +38,8 @@ dependencies {
     implementation "com.google.android.material:material:1.2.1"
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    //字体动画
     implementation 'com.github.elevenetc:textsurface:0.9.1'
-
+    //图片加载
+    implementation "com.github.bumptech.glide:glide:4.11.0"
 }

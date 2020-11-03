@@ -7,7 +7,7 @@ import android.view.View
 import lc.szy.bestci.ANIMATION_DURATION
 import kotlin.math.ceil
 
-class HeartView(context: Context, attrs: AttributeSet) : View(context, attrs) {
+class HeartFlowerView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     val bloomCount = 100
     val bloomList = ArrayList<Bloom>(bloomCount)
 

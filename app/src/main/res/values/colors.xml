@@ -21,4 +21,6 @@
 
     <color name="errorColor">#c51162</color>
     <color name="onErrorColor">#ffffff</color>
+
+    <color name="cardColor">#eb7897</color>
 </resources>
