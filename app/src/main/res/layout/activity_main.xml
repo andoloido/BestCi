@@ -19,7 +19,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="parent" />
 
-    <lc.szy.bestci.view.heart.HeartView
+    <lc.szy.bestci.view.heart.HeartFlowerView
         android:id="@+id/heartView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
