@@ -13,6 +13,6 @@ class SecretActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        ReverseAnimator.buildReverseAnimator(cardView, reverseCardView)
+        ReverseAnimator.buildReverseAnimator(cardView1, reverseCardView1)
     }
 }
