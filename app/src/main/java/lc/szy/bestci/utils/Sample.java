@@ -37,7 +37,7 @@ public class Sample {
         paint.setTypeface(robotoBlack);
 
         Text textDaai = TextBuilder
-                .create("Daai")
+                .create("これは\uD83D\uDE02")
                 .setPaint(paint)
                 .setSize(32)
                 .setAlpha(0)
@@ -45,7 +45,7 @@ public class Sample {
                 .setPosition(Align.SURFACE_CENTER).build();
 
         Text textBraAnies = TextBuilder
-                .create("bra Anies")
+                .create("Это не так❤")
                 .setPaint(paint)
                 .setSize(22)
                 .setAlpha(0)

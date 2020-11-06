@@ -54,7 +54,7 @@
         android:id="@+id/startBt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="60dp"
         android:text="不行，我现在就要看"
         android:textSize="@dimen/middleTextFont"
         app:layout_constraintBottom_toBottomOf="parent"

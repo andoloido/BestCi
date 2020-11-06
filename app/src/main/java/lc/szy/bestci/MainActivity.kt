@@ -7,6 +7,7 @@ import android.os.CountDownTimer
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import lc.szy.bestci.utils.ToastType
 import lc.szy.bestci.utils.dp
 import lc.szy.bestci.utils.toastLong
 import su.levenetc.android.textsurface.utils.AnimatorEndListener
@@ -24,10 +25,10 @@ class MainActivity : AppCompatActivity() {
             set(Calendar.YEAR, 2020)
             //10表示11月
             set(Calendar.MONTH, 10)
-            set(Calendar.DATE, 2)
-            set(Calendar.HOUR_OF_DAY, 14)
-            set(Calendar.MINUTE, 7)
-            set(Calendar.SECOND, 40)
+            set(Calendar.DATE, 11)
+            set(Calendar.HOUR_OF_DAY, 11)
+            set(Calendar.MINUTE, 11)
+            set(Calendar.SECOND, 11)
         }
         endTime = calendar.time.time
     }
@@ -42,13 +43,13 @@ class MainActivity : AppCompatActivity() {
         if (endTime - startTime > 0) {
             countDownTimer.start()
             startBt.setOnClickListener {
-                toastLong("心急吃不了热豆腐，更可怕的是可能找不到好的男朋友哦")
+                toastLong("心急吃不了热豆腐，更可怕的是可能找不到好的男朋友哦", ToastType.Warning)
             }
         } else {
             timeUp()
         }
         //TODO DELETE
-        startActivity(Intent(this@MainActivity, SecretActivity::class.java))
+        startActivity(Intent(this@MainActivity, TextActivity::class.java))
     }
 
     val countDownTimer = object : CountDownTimer(endTime - startTime, 1000L) {

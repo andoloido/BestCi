@@ -7,27 +7,50 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import es.dmoral.toasty.Toasty
 import lc.szy.bestci.App
+
+sealed class ToastType {
+    object Error : ToastType()
+    object Success : ToastType()
+    object Info : ToastType()
+    object Warning : ToastType()
+    object Normal : ToastType()
+}
 
 /**
  * 不定义LONG的Toast是因为short就够了
  */
-fun Context.toast(message: String) {
-    val toast = Toast.makeText(this, null, Toast.LENGTH_SHORT)
-    toast.setText(message)
-    toast.show()
+fun Context.toast(message: String, toastType: ToastType = ToastType.Normal) {
+    when (toastType) {
+        ToastType.Error -> Toasty.error(this, message, Toast.LENGTH_SHORT).show()
+        ToastType.Success -> Toasty.success(this, message, Toast.LENGTH_SHORT).show()
+        ToastType.Info -> Toasty.info(this, message, Toast.LENGTH_SHORT).show()
+        ToastType.Warning -> Toasty.warning(this, message, Toast.LENGTH_SHORT).show()
+        ToastType.Normal -> Toasty.normal(this, message, Toast.LENGTH_SHORT).show()
+    }
 }
 
-fun Context.toastLong(message: String) {
-    val toast = Toast.makeText(this, null, Toast.LENGTH_LONG)
-    toast.setText(message)
-    toast.show()
+fun Context.toastLong(message: String, toastType: ToastType = ToastType.Normal) {
+    when (toastType) {
+        ToastType.Error -> Toasty.error(this, message, Toast.LENGTH_LONG).show()
+        ToastType.Success -> Toasty.success(this, message, Toast.LENGTH_LONG).show()
+        ToastType.Info -> Toasty.info(this, message, Toast.LENGTH_LONG).show()
+        ToastType.Warning -> Toasty.warning(this, message, Toast.LENGTH_LONG).show()
+        ToastType.Normal -> Toasty.normal(this, message, Toast.LENGTH_LONG).show()
+    }
 }
 
-fun Fragment.toast(message: String) {
-    val toast = Toast.makeText(this.context, null, Toast.LENGTH_SHORT)
-    toast.setText(message)
-    toast.show()
+fun Fragment.toast(message: String, toastType: ToastType = ToastType.Normal) {
+    context?.run {
+        when (toastType) {
+            ToastType.Error -> Toasty.error(this, message, Toast.LENGTH_SHORT).show()
+            ToastType.Success -> Toasty.success(this, message, Toast.LENGTH_SHORT).show()
+            ToastType.Info -> Toasty.info(this, message, Toast.LENGTH_SHORT).show()
+            ToastType.Warning -> Toasty.warning(this, message, Toast.LENGTH_SHORT).show()
+            ToastType.Normal -> Toasty.normal(this, message, Toast.LENGTH_SHORT).show()
+        }
+    }
 }
 
 fun loadImage(imageView: ImageView, url: String, defaultDrawable: Int) {
