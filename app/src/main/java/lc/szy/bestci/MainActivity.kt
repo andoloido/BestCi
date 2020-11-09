@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import lc.szy.bestci.utils.ToastType
 import lc.szy.bestci.utils.dp
+import lc.szy.bestci.utils.toast
 import lc.szy.bestci.utils.toastLong
 import su.levenetc.android.textsurface.utils.AnimatorEndListener
 import java.util.*
@@ -25,9 +26,9 @@ class MainActivity : AppCompatActivity() {
             set(Calendar.YEAR, 2020)
             //10表示11月
             set(Calendar.MONTH, 10)
-            set(Calendar.DATE, 11)
-            set(Calendar.HOUR_OF_DAY, 11)
-            set(Calendar.MINUTE, 11)
+            set(Calendar.DATE, 9)
+            set(Calendar.HOUR_OF_DAY, 10)
+            set(Calendar.MINUTE, 50)
             set(Calendar.SECOND, 11)
         }
         endTime = calendar.time.time
@@ -36,20 +37,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-    }
-
-    override fun onResume() {
-        super.onResume()
         if (endTime - startTime > 0) {
             countDownTimer.start()
             startBt.setOnClickListener {
-                toastLong("心急吃不了热豆腐，更可怕的是可能找不到好的男朋友哦", ToastType.Warning)
+                toast("用耐心等到的才会更惊喜哦", ToastType.Warning)
             }
         } else {
             timeUp()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
         //TODO DELETE
-        startActivity(Intent(this@MainActivity, SecretActivity::class.java))
+        startActivity(Intent(this@MainActivity, TextActivity::class.java))
     }
 
     val countDownTimer = object : CountDownTimer(endTime - startTime, 1000L) {
@@ -82,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                 override fun onAnimationEnd(animation: Animator) {
                     startBt.text = "看看这小子还准备了啥"
                     startBt.setOnClickListener {
-                        startActivity(Intent(this@MainActivity, TextActivity::class.java))
+                        startActivity(Intent(this@MainActivity, SecretActivity::class.java))
                     }
                     with(startBt.animate()) {
                         alpha(1f)

@@ -18,7 +18,7 @@ import su.levenetc.android.textsurface.contants.Pivot
 import su.levenetc.android.textsurface.contants.Side
 
 class TextActivity : AppCompatActivity() {
-    val ANIMATOR_DURATION = 1000
+    val ANIMATOR_DURATION = 2000
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_text)
@@ -26,33 +26,28 @@ class TextActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        textSurface.reset()
+        showText(textSurface)
         agreeBt.setOnClickListener {
-            textSurface.reset()
-            showText(textSurface)
-            toast("看来你选了一个正确答案", ToastType.Success)
-        }
-        reconsiderBt.setOnClickListener {
-            toast("你可要仔细考虑考虑哦", ToastType.Error)
+            toast("谢谢你的信任，余生多多指教", ToastType.Success)
         }
     }
 
     fun showText(textSurface: TextSurface) {
         val paint = Paint(Paint.ANTI_ALIAS_FLAG)
-        val firstSentence = createText("你知道吗？", paint, Align.SURFACE_CENTER)
+        val firstSentence = createText("我想只有   这几句话", paint, Align.SURFACE_CENTER)
         val secondSentence =
-            createText("你还知道吗？", paint, Align.BOTTOM_OF or Align.CENTER_OF, firstSentence)
+            createText("才能表达一些我的心意", paint, Align.BOTTOM_OF or Align.CENTER_OF, firstSentence)
         val thirdSentence =
-            createText("你还还知道吗？", paint, Align.BOTTOM_OF or Align.CENTER_OF, secondSentence)
+            createText("Би чамд хайртай", paint, Align.BOTTOM_OF or Align.CENTER_OF, secondSentence)
         val fourthSentence =
-            createText("你还还还知道吗？", paint, Align.BOTTOM_OF or Align.CENTER_OF, thirdSentence)
+            createText("Я люблю тебя", paint, Align.BOTTOM_OF or Align.CENTER_OF, thirdSentence)
         val fifthSentence =
-            createText("你还还还还知道吗？", paint, Align.BOTTOM_OF or Align.CENTER_OF, fourthSentence)
+            createText("爱している", paint, Align.BOTTOM_OF or Align.CENTER_OF, fourthSentence)
         val sixthSentence =
-            createText("你还还还还还知道吗？", paint, Align.BOTTOM_OF or Align.CENTER_OF, fifthSentence)
+            createText("I love you", paint, Align.BOTTOM_OF or Align.CENTER_OF, fifthSentence)
         val seventhSentence =
-            createText("你还还还还还还知道吗？", paint, Align.BOTTOM_OF or Align.CENTER_OF, sixthSentence)
-        val eighthSentence =
-            createText("你还还还还还还还知道吗？", paint, Align.BOTTOM_OF or Align.CENTER_OF, seventhSentence)
+            createText("我爱你", paint, Align.BOTTOM_OF or Align.CENTER_OF, sixthSentence)
         textSurface.play(
             Sequential(
                 ShapeReveal.create(
@@ -88,10 +83,6 @@ class TextActivity : AppCompatActivity() {
                 Parallel(
                     TransSurface(ANIMATOR_DURATION, seventhSentence, Pivot.CENTER),
                     Slide.showFrom(Side.BOTTOM, seventhSentence, ANIMATOR_DURATION)
-                ),
-                Parallel(
-                    TransSurface(ANIMATOR_DURATION, eighthSentence, Pivot.CENTER),
-                    Slide.showFrom(Side.BOTTOM, eighthSentence, ANIMATOR_DURATION)
                 )
             )
         )
@@ -111,7 +102,6 @@ class TextActivity : AppCompatActivity() {
             sentence
         ).setPaint(paint).setSize(size)
             .setAlpha(alpha).setColor(color).setPosition(position, alignText).build()
-
     }
 
 }
