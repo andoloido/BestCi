@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".FinishActivity">
 
+    <lc.szy.bestci.view.rainbow.RainbowView
+        android:id="@+id/rainbowView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

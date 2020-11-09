@@ -95,7 +95,7 @@ class TextActivity : AppCompatActivity() {
         alignText: Text? = null,
         size: Float = 22f,
         alpha: Int = 0,
-        color: Int = Color.BLACK
+        color: Int = Color.parseColor("#eb7897")
     ): Text {
         return if (alignText == null) TextBuilder.create(sentence).setPaint(paint).setSize(size)
             .setAlpha(alpha).setColor(color).setPosition(position).build() else TextBuilder.create(
