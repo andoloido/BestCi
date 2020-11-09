@@ -6,10 +6,10 @@ import android.view.animation.LinearInterpolator
 import androidx.core.animation.addListener
 
 
-class ReverseAnimator(view1: View, view2: View) {
+class ReverseAnimator(view1: View, view2: View, reverseListener: (() -> Unit)? = null) {
     companion object {
-        fun buildReverseAnimator(view1: View, view2: View) {
-            ReverseAnimator(view1, view2)
+        fun buildReverseAnimator(view1: View, view2: View, reverseListener: (() -> Unit)? = null) {
+            ReverseAnimator(view1, view2, reverseListener)
         }
     }
 
@@ -33,6 +33,7 @@ class ReverseAnimator(view1: View, view2: View) {
         })
         view1.setOnClickListener {
             animator1.start()
+            reverseListener?.invoke()
         }
         view2.setOnClickListener {
             animator2Reverse.start()

@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
             timeUp()
         }
         //TODO DELETE
-        startActivity(Intent(this@MainActivity, TextActivity::class.java))
+        startActivity(Intent(this@MainActivity, SecretActivity::class.java))
     }
 
     val countDownTimer = object : CountDownTimer(endTime - startTime, 1000L) {
