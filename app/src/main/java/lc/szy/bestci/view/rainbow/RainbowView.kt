@@ -41,7 +41,7 @@ class RainbowView(context: Context, attrs: AttributeSet) : View(context, attrs) 
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
-        val size = Math.min(w, h)
+        val size = Math.min(w, h * 2)
         centerPoint = PointF(w / 2f, h / 1f)
         maxRadius = size * 4 / 9f
         radius1 = maxRadius

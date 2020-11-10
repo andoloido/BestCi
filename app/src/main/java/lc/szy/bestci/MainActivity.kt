@@ -7,10 +7,7 @@ import android.os.CountDownTimer
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import lc.szy.bestci.utils.ToastType
-import lc.szy.bestci.utils.dp
-import lc.szy.bestci.utils.toast
-import lc.szy.bestci.utils.toastLong
+import lc.szy.bestci.utils.*
 import su.levenetc.android.textsurface.utils.AnimatorEndListener
 import java.util.*
 
@@ -21,16 +18,7 @@ class MainActivity : AppCompatActivity() {
     val startTime: Long = System.currentTimeMillis()
 
     init {
-        val calendar = Calendar.getInstance().apply {
-            clear()
-            set(Calendar.YEAR, 2020)
-            //10表示11月
-            set(Calendar.MONTH, 10)
-            set(Calendar.DATE, 9)
-            set(Calendar.HOUR_OF_DAY, 10)
-            set(Calendar.MINUTE, 50)
-            set(Calendar.SECOND, 11)
-        }
+        val calendar = getCalendar(2020, 11, 10, 16, 11, 11)
         endTime = calendar.time.time
     }
 
