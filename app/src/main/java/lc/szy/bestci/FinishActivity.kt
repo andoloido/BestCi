@@ -17,7 +17,11 @@ class FinishActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_finish)
         countDownTimer.start()
-        calendar = getCalendar(2020, 11, 11, 11, 11, 11)
+        calendar = getCalendar(2020, 11, 10, 11, 11, 11)
+        line2LeftTv.animate().scaleX(2f).scaleY(2f).setDuration(5000L).start()
+        line3LeftTv.animate().scaleX(2f).scaleY(2f).setDuration(5000L).start()
+        line4LeftTv.animate().scaleX(2f).scaleY(2f).setDuration(5000L).start()
+        line5LeftTv.animate().scaleX(2f).scaleY(2f).setDuration(5000L).start()
     }
 
     override fun onResume() {

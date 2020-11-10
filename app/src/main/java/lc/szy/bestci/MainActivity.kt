@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     val startTime: Long = System.currentTimeMillis()
 
     init {
-        val calendar = getCalendar(2020, 11, 10, 16, 11, 11)
+        val calendar = getCalendar(2020, 11, 11, 11, 11, 11)
         endTime = calendar.time.time
     }
 
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         if (endTime - startTime > 0) {
             countDownTimer.start()
             startBt.setOnClickListener {
-                toast("用耐心等到的才会更惊喜哦", ToastType.Warning)
+                toast("要耐心等倒计时结束哦", ToastType.Warning)
             }
         } else {
             timeUp()

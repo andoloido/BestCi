@@ -46,7 +46,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="100dp"
         android:text="我们在一起了"
         android:textColor="@color/textBlackColor"
         android:textSize="24dp"
@@ -154,4 +153,16 @@
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/line5LeftTv"
         app:layout_constraintStart_toEndOf="@id/line5LeftTv" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="每一秒我都会更爱你的❤"
+        android:textColor="@color/textBlackColor"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line5LeftTv" />
 </androidx.constraintlayout.widget.ConstraintLayout>
