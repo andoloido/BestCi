@@ -7,6 +7,7 @@ import android.os.CountDownTimer
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import lc.szy.bestci.game.GameMainActivity
 import lc.szy.bestci.utils.*
 import su.levenetc.android.textsurface.utils.AnimatorEndListener
 import java.util.*
@@ -38,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         //TODO DELETE
-        startActivity(Intent(this@MainActivity, FinishActivity::class.java))
+        startActivity(Intent(this@MainActivity, GameMainActivity::class.java))
     }
 
     val countDownTimer = object : CountDownTimer(endTime - startTime, 1000L) {
