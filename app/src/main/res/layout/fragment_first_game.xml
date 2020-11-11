@@ -10,7 +10,7 @@
         android:id="@+id/role1"
         android:layout_width="150dp"
         android:layout_height="300dp"
-        android:src="@drawable/goku"
+        android:src="@drawable/naruto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -18,7 +18,7 @@
         android:id="@+id/role2"
         android:layout_width="150dp"
         android:layout_height="300dp"
-        android:src="@drawable/buu"
+        android:src="@drawable/gaara"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
